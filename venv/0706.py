@@ -122,6 +122,67 @@ a,b=('python','life')
 print(a)
 print(b)
 
-a=b='pythpn'
-a=3
-b+5
+# a=b='pythpn'
+# a=3
+# b+5
+
+# pocket=['paper','cellphone','money']
+# if 'money' in pocket:
+#     print("택시를 타고가라")
+# else:
+#     if card:
+#         print("택시를 타고가라")
+#     else:
+#         print("걸어가라")
+
+# treeHit=0
+# while treeHit<10:
+#     treeHit=treeHit+1
+#     print("나무를 %d번 찍었습니다." %treeHit)
+#     if treeHit==10:
+#         print("나무 넘어갑니다")
+#
+# coffee=10
+# while True:
+#     money=int(input("돈을 넣어주세요: "))
+#     if money ==300:
+#         print("커피를 줍니다.")
+#         coffee=coffee -1
+#     elif money > 300:
+#         print("거스름돈 %d를 주고 커피를 줍니다."%(money-300))
+#         coffee=coffee-1
+#     else:
+#         print("돈을 다시 돌려주고 커리를 주지 않습니다.")
+#         print("남은 커피의 양은%d개 입니다"%coffee)
+#     if coffee==0:
+#         print("커피가 다 떨어졌습니다. 판매를 중지합니다.")
+#         break
+
+marks=[90,25,67,45,80]
+
+number=0
+for mark in marks:
+    number=number+1
+    if mark >= 60:
+        print("%d번 학생은 합격입니다."%number)
+    else:
+        print("%d번 학생은 불합격입니다"%number)
+
+
+add=0
+for i in range(1,11):
+    add=add+i
+
+print(add)
+
+marks = [90,25,68,54,80]
+for number in range(len(marks)):
+    if marks[number] < 60:
+        continue
+    print("%d번 학생 축하합니다 합격입니다~"% (number+1))
+
+
+for i in range(2,10):
+    for j in range(1,10):
+        print(i*j,end=" ")
+    print('')
