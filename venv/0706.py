@@ -210,48 +210,78 @@ print(b)
 #             result=result+i
 #     return  result
 
-class Calculator:
-    def __init__(self):
-        self.result=0
+# class Calculator:
+#     def __init__(self):
+#         self.result=0
+#
+#     def add(self,num):
+#         self.result += num
+#         return  self.result
+# cal1=Calculator()
+# cal2=Calculator()
+#
+# print(cal1.add(3))
+# print(cal1.add(4))
+# print(cal2.add(3))
+# print(cal2.add(7))
+#
+#
+# class FourCal:
+#     def __init__(self, first=None, second=None):
+#         self.first = first
+#         self.second = second
+#     def setdata(self,first,second):
+#         self.first=first
+#         self.second=second
+#     def add(self):
+#         result=self.first + self.second
+#         return  result
+#     def mul(self):
+#         result=self.first * self.second
+#         return result
+#     def sub(self):
+#         result=self.first - self.second
+#         return result
+#     def div(self):
+#         result=self.first / self.second
+#         return result
+#
+# a=FourCal()
+# b=FourCal()
+# a.setdata(4,2)
+# b.setdata(3.8)
+# print(a.add())
+# print(a.mul())
+# print(a.sub())
+# print(a.div())
+# print(b.add())
+# print(b.mul())
+# print(b.sub())
+# print(b.div())
+#
+# import game.sound.echo
+# game.sound.echo.echo_test()
+#
+# from game.sound.echo import echo_test
+# echo_test()
+#
+#
+# try:
+#     a=[1,2]
+#     print(3)
+#     4/0
+# except ZeroDivisionError as e:
+#     print(e)
+# except IndexError as e!
 
-    def add(self,num):
-        self.result += num
-        return  self.result
-cal1=Calculator()
-cal2=Calculator()
+class Bird:
+    def fly(self):
+        raise NotImplementedError
 
-print(cal1.add(3))
-print(cal1.add(4))
-print(cal2.add(3))
-print(cal2.add(7))
+class Eagle(Bird):
+    def fly(self):
+        print("very fast")
+eagle = Eagle()
+eagle.fly()
 
 
-class FourCal:
-    def setdata(self,first,second):
-        self.first=first
-        self.second=second
-    def add(self):
-        result=self.first + self.second
-        return  result
-    def mul(self):
-        result=self.first * self.second
-        return result
-    def sub(self):
-        result=self.first - self.second
-        return result
-    def div(self):
-        result=self.first / self.second
-        return result
-
-a=FourCal()
-b=FourCal()
-a.setdata(4,2)
-b.setdata(3.8)
-print(a.add())
-print(a.mul())
-print(a.sub())
-print(a.div())
-print(b.add())
-print(b.mul())
-print(b.sub())
-print(b.div())
