@@ -33,4 +33,5 @@ for i in range(1,7):
 # a, b = input().split(':')
 # print(a, b, sep=':')
 
-
+a="hello"
+print(a)
