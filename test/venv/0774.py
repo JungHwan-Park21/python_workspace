@@ -76,3 +76,26 @@ imgURL = "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday.geotif?
 
 urllib.request.urlretrieve(imgURL, f"E:/test/image{a}.tif")
 
+
+## 필요 자료 설치
+from datetime import date, timedelta
+import urllib.request
+
+## 시작날짜와 종료날짜 설정
+start_date = date(2018, 7, 28) #시작일
+end_date = date(2020, 8, 3) #종료일
+
+## 다운로드 받을 폴더 설정
+Download = 'D:/test/'
+
+
+## 실행 코드
+def daterange(start_date, end_date):
+    for n in range(int((end_date - start_date).days)):
+        yield start_date + timedelta(n)
+
+for single_date in daterange(start_date, end_date):
+    url= 'https://seaice.uni-bremen.de/data/amsr2/asi_daygrid_swath/s3125/' + (single_date.strftime("%Y")) + '/' + (single_date.strftime("%b")).lower() + '/Antarctic3125/asi-AMSR2-s3125-' + (single_date.strftime("%Y%m%d")) + '-v5.4.tif'
+    print(url)
+    urllib.request.urlretrieve(url, 'D:/test/' + 'SIC_' + (single_date.strftime("%Y-%m-%d")) + '.tif')
+
