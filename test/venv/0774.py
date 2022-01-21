@@ -54,29 +54,30 @@
 #     print(a1)
 
 ##
-import urllib.request
-from datetime import date, timedelta
+# import urllib.request
+# from da
+# start_date = date(2021, 1,1)
+# end_date = datetime import date, timedelta
+# te(2021,12,31)
+#
+# def daterange(start_date, end_date):
+#      for n in range(int((end_date - start_date).days)):
+#          yield start_date + timedelta(n)
+#
+# for single_date in daterange(start_date, end_date):
+#      a = (single_date.strftime("%Y-%m-%d"))
+#
+#
+#
+# # imgURL = "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday.geotif?chlorophyll%5B(2021-11-25T00:00:00Z)%5D%5B(-57.97917):(-66.68751)%5D%5B(-63.64583):(-54.9375)%5D&.draw=surface&.vars=longitude%7Clatitude%7Cchlorophyll&.colorBar=%7C%7C%7C%7C%7C&.bgColor=0xffccccff"
+#
+#
+# imgURL = "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday.geotif?chlorophyll%5B(' + a + 'T00:00:00Z)%5D%5B(-57.97917):(-66.68751)%5D%5B(-63.64583):(-54.9375)%5D&.draw=surface&.vars=longitude%7Clatitude%7Cchlorophyll&.colorBar=%7C%7C%7C%7C%7C&.bgColor=0xffccccff"
+#
+# urllib.request.urlretrieve(imgURL, f"E:/test/image{a}.tif")
 
-start_date = date(2021, 1,1)
-end_date = date(2021,12,31)
 
-def daterange(start_date, end_date):
-     for n in range(int((end_date - start_date).days)):
-         yield start_date + timedelta(n)
-
-for single_date in daterange(start_date, end_date):
-     a = (single_date.strftime("%Y-%m-%d"))
-
-
-
-# imgURL = "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday.geotif?chlorophyll%5B(2021-11-25T00:00:00Z)%5D%5B(-57.97917):(-66.68751)%5D%5B(-63.64583):(-54.9375)%5D&.draw=surface&.vars=longitude%7Clatitude%7Cchlorophyll&.colorBar=%7C%7C%7C%7C%7C&.bgColor=0xffccccff"
-
-
-imgURL = "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdMH1chlamday.geotif?chlorophyll%5B(' + a + 'T00:00:00Z)%5D%5B(-57.97917):(-66.68751)%5D%5B(-63.64583):(-54.9375)%5D&.draw=surface&.vars=longitude%7Clatitude%7Cchlorophyll&.colorBar=%7C%7C%7C%7C%7C&.bgColor=0xffccccff"
-
-urllib.request.urlretrieve(imgURL, f"E:/test/image{a}.tif")
-
-
+## 날짜 및 위도 경도 설정 추가
 ## 필요 자료 설치
 from datetime import date, timedelta
 import urllib.request
