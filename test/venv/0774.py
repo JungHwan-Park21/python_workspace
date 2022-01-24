@@ -100,3 +100,64 @@ for single_date in daterange(start_date, end_date):
     print(url)
     urllib.request.urlretrieve(url, 'D:/test/' + 'SIC_' + (single_date.strftime("%Y-%m-%d")) + '.tif')
 
+# 파일복사 프로그램 ex)
+# 모듈
+import sys
+import os
+
+# 상수
+FILENAME = 'mycopy.py'
+OPTION = '-cp'
+
+# 예외처리를 직접 만들기 위한 클래스
+class FileTypeError(Exception):
+    pass
+
+# 예외 처리 구문
+try:
+    # sys.argv = ['mycopy', '-cp', '복사할 txt파일', '붙여넣을 txt파일']
+    # sys.argv의 원소를 각각 변수로 초기화 하는 과정에서 리스트에 누락이 있으면, IndexError 발생
+    option = sys.argv[1] # 옵션
+    f_copy = sys.argv[2] # 복사할 파일
+    f_paste = sys.argv[3] # 붙여넣을 파일
+
+    if option == OPTION: # 옵션이 정확히 들어왔을 경우
+        if f_copy[-4:] == '.txt' and f_paste[-4:] == '.txt':
+        # 복사/붙여넣을 파일의 형식이 .txt인 경우
+            with open(f_copy, 'rt', encoding="utf-8") as f:
+                text = f.read() # 복사할 파일을 읽어 텍스트를 변수로 저장
+            with open(f_paste, 'wt', encoding="utf-8") as f:
+                f.write(text)# 붙여넣을 파일을 열어 텍스트 복사
+
+            # 파일 복사 완료 후 내용 출력여부 확인
+            answer = input('파일 복사가 완료되었습니다. 복사한 파일의 내용을 확인하시겠습니까?(Y/N) : ')
+            if answer == 'Y' or answer == 'y' or answer == 'ㅛ': # Y
+                print('파일명) {}' .format(f_paste))
+                print('내용)')
+                with open(f_paste, 'rt', encoding="utf-8") as f:
+                    read = f.read() # 파일을 열어 저장된 내용 출력
+                print(read)
+            else: # N
+                print('파일 복사 프로그램을 종료합니다.') # 프로그램 종료
+
+        else: # 복사/붙여넣을 파일의 형식이 .txt가 아닌 경우
+            raise FileTypeError() # 직접 생성한 파일형식에러 강제 발생
+
+    else: # 옵션이 정확하게 들어오지 않았을 경우
+        raise IndexError # IndexError 강제 발생
+
+# 에러 처리 구문
+except IndexError: # sys.argv 리스트에 값이 하나라도 누락되었을 경우 에러 발생
+    print('커맨드 형식이 올바르지 않습니다. 아래 형식을 참조하여 다시 입력하세요.')
+    print('커맨드 형식 : python {0} {1} [복사할 txt파일] [붙여넣을 txt파일]' .format(FILENAME, OPTION))
+
+except (FileTypeError, FileNotFoundError): # txt파일이 아니거나 복사할 파일이 없는 경우
+    print('txt파일이 없거나 파일의 형식이 올바르지 않습니다.')
+    print('현재 경로에 있는 \'*.txt\' 파일 목록은 아래와 같습니다.')
+    print('-----------------------------------------------------')
+
+    # OS별 현재 경로의 .txt 파일 리스트 출력
+    if os.name == 'nt': # Window OS
+        os.system('dir /b | findstr .txt')
+    else: # Linux OS, Mac OS
+        os.system('ls | grep .txt')
